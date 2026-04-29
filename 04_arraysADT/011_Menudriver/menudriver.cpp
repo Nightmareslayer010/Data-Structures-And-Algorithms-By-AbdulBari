@@ -26,7 +26,7 @@ public:
     {
         delete[] A;
         cout << endl;
-        cout << "Memory Freed" << endl;
+        cout << "Memory Freed";
     }
 };
 
