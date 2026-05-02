@@ -12,14 +12,13 @@ private:
 public:
     // constructors and destructor
     Array();
-
     Array(int s, int l);
-
+    Array(const Array &arr);
     ~Array();
 
     // member functions
     // helper
-    void display();
+    void display() const;
     // accessor
     int get(int index);
     // mutater
@@ -30,6 +29,7 @@ public:
     void Delete(int index);
     int lSearch(int key);
     int bSearch(int key);
+    int bSearchHelper(int low, int high, int key);
     int rBsearch(int key);
     int max();
     int min();
@@ -37,13 +37,15 @@ public:
     int avg();
     void reverseNormal();
     void reverseSwap();
-    void insertInSorted();
-    void isSorted();
+    void insertInSorted(int value);
+    bool isSorted();
     void reArrange();
-    void Merge(Array &Arr2);
-    void Union(Array &Arr2);
-    void Intersection(Array &Arr2);
-    void Difference(Array &Arr2);
+    void lShiftRotate(int k);
+    void rShiftRotate(int k);
+    Array Merge(Array &arr2);
+    Array Union(Array &arr2);
+    Array Intersection(Array &arr2);
+    Array Difference(Array &arr2);
 };
 
 #endif
