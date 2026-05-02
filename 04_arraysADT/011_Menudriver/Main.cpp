@@ -15,8 +15,8 @@ int main()
         cout << "Length cant be greater than: " << s;
         cin >> l;
     }
-    Array arr1(s, l);
-    Array arr2(s, l);
+    Array<int> arr1(s, l);
+    Array<int> arr2(s, l);
     cout << "Enter Elements" << endl;
     int input;
     for (int i = 0; i < l; i++)
@@ -167,14 +167,14 @@ int main()
         case 18:
         {
             cout << "Union Array is:" << endl;
-            Array arr3 = arr1.Union(arr2);
+            Array<int> arr3 = arr1.Union(arr2);
             arr3.display();
             break;
         }
         case 19:
         {
             cout << "Intersection Array is:" << endl;
-            Array arr3 = arr1.Intersection(arr2);
+            Array<int> arr3 = arr1.Intersection(arr2);
             arr3.display();
             break;
         }
@@ -183,7 +183,7 @@ int main()
         case 20:
         {
             cout << "Difference Array is:" << endl;
-            Array arr3 = arr1.Difference(arr2);
+            Array<int> arr3 = arr1.Difference(arr2);
             arr3.display();
             break;
         }
@@ -192,7 +192,7 @@ int main()
         case 21:
         {
             cout << "Merged Array is:" << endl;
-            Array arr3 = arr1.Merge(arr2);
+            Array<int> arr3 = arr1.Merge(arr2);
             arr3.display();
             break;
         }

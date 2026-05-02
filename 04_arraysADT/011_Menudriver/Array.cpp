@@ -3,33 +3,37 @@
 using namespace std;
 
 // Constructor and Destructor Implementation
-
-Array::Array()
+template <class T>
+Array<T>::Array()
 {
     size = 0;
     length = 0;
     A = nullptr;
 }
-Array::Array(int s, int l)
+template <class T>
+
+Array<T>::Array(int s, int l)
 {
     size = s;
     length = l;
-    A = new int[size];
+    A = new T[size];
 }
+template <class T>
 
-Array::Array(const Array &arr)
+Array<T>::Array(const Array<T> &arr)
 {
     this->size = arr.size;
     this->length = arr.length;
-    this->A = new int[arr.size];
+    this->A = new T[arr.size];
 
     for (int i = 0; i < arr.length; i++)
     {
         this->A[i] = arr.A[i];
     }
 }
+template <class T>
 
-Array::~Array()
+Array<T>::~Array()
 {
     delete[] A;
     cout << endl;
@@ -37,7 +41,9 @@ Array::~Array()
 }
 
 // helper function Display
-void Array::display() const
+template <class T>
+
+void Array<T>::display() const
 {
 
     for (int i = 0; i < length; i++)
@@ -48,7 +54,9 @@ void Array::display() const
     cout << endl;
 }
 // accessor
-int Array::get(int index)
+template <class T>
+
+int Array<T>::get(int index)
 {
     if (index >= 0 && index < length)
     {
@@ -57,7 +65,9 @@ int Array::get(int index)
     return -1;
 }
 // mutator
-void Array::set(int index, int value)
+template <class T>
+
+void Array<T>::set(int index, T value)
 {
     if (index >= 0 && index < length)
     {
@@ -69,7 +79,9 @@ void Array::set(int index, int value)
     }
 }
 // facilitator
-void Array::append(int value)
+template <class T>
+
+void Array<T>::append(T value)
 {
 
     if (length < size)
@@ -82,8 +94,9 @@ void Array::append(int value)
         cout << "Not Enough Length to append" << endl;
     }
 }
+template <class T>
 
-void Array::insert(int index, int value)
+void Array<T>::insert(int index, T value)
 {
     if (index >= 0 && index <= length && length < size)
     {
@@ -99,7 +112,9 @@ void Array::insert(int index, int value)
         cout << "Index out of Bounds" << endl;
     }
 }
-void Array::Delete(int index)
+template <class T>
+
+void Array<T>::Delete(int index)
 {
     if (index >= 0 && index < length)
     {
@@ -114,16 +129,18 @@ void Array::Delete(int index)
         cout << "Index out of Bounds" << endl;
     }
 }
+template <class T>
 
-void Array::swap(int *x, int *y)
+void Array<T>::swap(T *x, T *y)
 {
-    int temp;
+    T temp;
     temp = *x;
     *x = *y;
     *y = temp;
 }
+template <class T>
 
-int Array::lSearch(int key)
+int Array<T>::lSearch(T key)
 {
 
     for (int i = 0; i < length; i++)
@@ -136,8 +153,9 @@ int Array::lSearch(int key)
     }
     return -1;
 }
+template <class T>
 
-int Array::bSearch(int key)
+int Array<T>::bSearch(T key)
 {
 
     int low = 0;
@@ -160,14 +178,17 @@ int Array::bSearch(int key)
     }
     return -1;
 }
-int Array::rBsearch(int key)
+template <class T>
+
+int Array<T>::rBsearch(T key)
 {
     int low = 0;
     int high = length - 1;
     return bSearchHelper(low, high, key);
 }
+template <class T>
 
-int Array::bSearchHelper(int low, int high, int key)
+int Array<T>::bSearchHelper(int low, int high, T key)
 {
     int mid = (low + high) / 2;
     if (low > high)
@@ -190,21 +211,26 @@ int Array::bSearchHelper(int low, int high, int key)
         }
     }
 }
-int Array::max()
+template <class T>
+
+T Array<T>::max()
 {
-    int max = A[0];
+    T max = A[0];
     for (int i = 1; i < length; i++)
     {
         if (max < A[i])
+
         {
             max = A[i];
         };
     }
     return max;
 }
-int Array::min()
+template <class T>
+
+T Array<T>::min()
 {
-    int min = A[0];
+    T min = A[0];
     for (int i = 1; i < length; i++)
     {
         if (min > A[i])
@@ -214,18 +240,22 @@ int Array::min()
     }
     return min;
 }
-int Array::sum()
+template <class T>
+
+T Array<T>::sum()
 {
-    int sum = 0;
+    T sum = 0;
     for (int i = 0; i < length; i++)
     {
         sum = sum + A[i];
     }
     return sum;
 }
-int Array::avg()
+template <class T>
+
+double Array<T>::avg()
 {
-    int sum = 0;
+    T sum = 0;
     float total = length;
     for (int i = 0; i < length; i++)
     {
@@ -233,9 +263,11 @@ int Array::avg()
     }
     return (float)sum / total;
 }
-void Array::reverseNormal()
+template <class T>
+
+void Array<T>::reverseNormal()
 {
-    int *B = new int[length];
+    int *B = new T[length];
     for (int i = length - 1, j = 0; i >= 0; i--, j++)
     {
         B[j] = A[i];
@@ -246,14 +278,18 @@ void Array::reverseNormal()
     }
     delete[] B;
 }
-void Array::reverseSwap()
+template <class T>
+
+void Array<T>::reverseSwap()
 {
     for (int i = 0, j = length - 1; i < j; i++, j--)
     {
         swap(&A[i], &A[j]);
     }
 }
-void Array::insertInSorted(int value)
+template <class T>
+
+void Array<T>::insertInSorted(T value)
 {
     if (length < size)
     {
@@ -270,8 +306,9 @@ void Array::insertInSorted(int value)
         cout << "not enough capacity to insert" << endl;
     }
 }
+template <class T>
 
-bool Array::isSorted()
+bool Array<T>::isSorted()
 {
     for (int i = 0; i < length - 1; i++)
     {
@@ -282,8 +319,9 @@ bool Array::isSorted()
     }
     return true;
 }
+template <class T>
 
-void Array::reArrange()
+void Array<T>::reArrange()
 {
     for (int i = 0, j = 0; i < length;)
     {
@@ -300,7 +338,9 @@ void Array::reArrange()
         }
     }
 }
-void Array::lShiftRotate(int k)
+template <class T>
+
+void Array<T>::lShiftRotate(int k)
 {
     k = k % length;
     if (k < 0)
@@ -309,7 +349,7 @@ void Array::lShiftRotate(int k)
     }
     for (int x = 0; x < k; x++)
     {
-        int temp = A[0];
+        T temp = A[0];
         for (int i = 0; i < length - 1; i++)
         {
             A[i] = A[i + 1];
@@ -317,8 +357,9 @@ void Array::lShiftRotate(int k)
         A[length - 1] = temp;
     }
 }
+template <class T>
 
-void Array::rShiftRotate(int k)
+void Array<T>::rShiftRotate(int k)
 {
     k = k % length;
     if (k < 0)
@@ -327,7 +368,7 @@ void Array::rShiftRotate(int k)
     }
     for (int x = 0; x < k; x++)
     {
-        int temp = A[length - 1];
+        T temp = A[length - 1];
         for (int i = length - 1; i > 0; i--)
         {
             A[i] = A[i - 1];
@@ -335,14 +376,16 @@ void Array::rShiftRotate(int k)
         A[0] = temp;
     }
 }
-Array Array::Merge(Array &arr2)
+template <class T>
+
+Array<T> Array<T>::Merge(Array<T> &arr2)
 {
 
     int i = 0;
     int j = 0;
     int k = 0;
 
-    Array arr3(this->length + arr2.length, 0);
+    Array<T> arr3(this->length + arr2.length, 0);
 
     while (i < this->length && j < arr2.length)
     {
@@ -373,14 +416,16 @@ Array Array::Merge(Array &arr2)
 
     return arr3;
 }
-Array Array::Union(Array &arr2)
+template <class T>
+
+Array<T> Array<T>::Union(Array<T> &arr2)
 {
 
     int i = 0;
     int j = 0;
     int k = 0;
 
-    Array arr3(this->length + arr2.length, 0);
+    Array<T> arr3(this->length + arr2.length, 0);
 
     while (i < this->length && j < arr2.length)
     {
@@ -418,14 +463,15 @@ Array Array::Union(Array &arr2)
     arr3.length = k;
     return arr3;
 }
+template <class T>
 
-Array Array::Intersection(Array &arr2)
+Array<T> Array<T>::Intersection(Array<T> &arr2)
 {
     int i = 0;
     int k = 0;
     int j = 0;
 
-    Array arr3(this->length + arr2.length, 0);
+    Array<T> arr3(this->length + arr2.length, 0);
     while (i < this->length && j < arr2.length)
     {
         if (this->A[i] < arr2.A[j])
@@ -448,12 +494,14 @@ Array Array::Intersection(Array &arr2)
     arr3.length = k;
     return arr3;
 }
-Array Array::Difference(Array &arr2)
+template <class T>
+
+Array<T> Array<T>::Difference(Array<T> &arr2)
 {
     int i = 0;
     int j = 0;
     int k = 0;
-    Array arr3(this->length + arr2.length, 0);
+    Array<T> arr3(this->length + arr2.length, 0);
     while (i < this->length && j < arr2.length)
     {
         if (this->A[i] < arr2.A[j])

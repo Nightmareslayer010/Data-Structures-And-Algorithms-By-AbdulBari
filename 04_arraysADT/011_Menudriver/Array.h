@@ -1,13 +1,14 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+template <class T>
 class Array
 {
 private:
-    int *A;
+    T *A;
     int size;
     int length;
-    void swap(int *x, int *y);
+    void swap(T *x, T *y);
 
 public:
     // constructors and destructor
@@ -22,30 +23,30 @@ public:
     // accessor
     int get(int index);
     // mutater
-    void set(int index, int value);
+    void set(int index, T value);
     // facilitator
-    void append(int value);
-    void insert(int index, int value);
+    void append(T value);
+    void insert(int index, T value);
     void Delete(int index);
-    int lSearch(int key);
-    int bSearch(int key);
-    int bSearchHelper(int low, int high, int key);
-    int rBsearch(int key);
-    int max();
-    int min();
-    int sum();
-    int avg();
+    int lSearch(T key);
+    int bSearch(T key);
+    int bSearchHelper(int low, int high, T key);
+    int rBsearch(T key);
+    T max();
+    T min();
+    T sum();
+    double avg();
     void reverseNormal();
     void reverseSwap();
-    void insertInSorted(int value);
+    void insertInSorted(T value);
     bool isSorted();
     void reArrange();
     void lShiftRotate(int k);
     void rShiftRotate(int k);
-    Array Merge(Array &arr2);
-    Array Union(Array &arr2);
-    Array Intersection(Array &arr2);
-    Array Difference(Array &arr2);
+    Array<T> Merge(Array<T> &arr2);
+    Array<T> Union(Array<T> &arr2);
+    Array<T> Intersection(Array<T> &arr2);
+    Array<T> Difference(Array<T> &arr2);
 };
-
+#include "Array.cpp"
 #endif
