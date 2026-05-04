@@ -20,7 +20,7 @@ int power(int m, int n)
 
 int main()
 {
-    int p = power(2, 3);
+    int p = power(2, 8);
     cout << p;
     return 0;
 }
