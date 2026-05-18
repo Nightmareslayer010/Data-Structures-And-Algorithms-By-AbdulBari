@@ -8,7 +8,7 @@ int main()
     for (i = 0; S[i] != '\0'; i++)
     {
     }
-    cout << "length is" << i;
+    cout << "length is " << i;
 
     return 0;
 }
