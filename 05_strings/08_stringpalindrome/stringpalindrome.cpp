@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// a palindrome string is just a string which is same when reversed
 int main()
 {
     char A[] = "madam";
